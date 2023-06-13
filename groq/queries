@@ -1,0 +1,25 @@
+*[_type=='park'&& name == 'COASTFIELDS']
+  {name, 'unitType': park_unit[]->{name,
+                                     price, 
+                                     preowned, 
+                                     justarrived, 
+                                     parkasset->{name, size->{size}, 
+                                     images[]{'imageUrl':asset->{url}}, 
+                                     "noOfBeds":beds->{name},
+                                     included[]->{"description":inc_description}}}}
+
+*[_type=='park'&& name == $parkName ] { name, 'unitType': *[_type=='park_unit'&& name == "Atlas2" ] }
+
+# With Params
+*[_type=='park'&& name == $parkName ]
+  {name, 'unitType': *[_type=='park_unit'&& name == $unit ]{name,
+                                     stockNo,
+                                     description,
+                                     price, 
+                                     preowned, 
+                                     justarrived, 
+                                     included[]->{inc_description},
+                                     parkasset->{name, size->{size}, 
+                                     images[]{'imageUrl':asset->{url}}, 
+                                     "noOfBeds":beds->{name},
+                                     }}}
