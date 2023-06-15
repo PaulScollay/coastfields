@@ -23,3 +23,16 @@
                                      images[]{'imageUrl':asset->{url}}, 
                                      "noOfBeds":beds->{name},
                                      }}}
+
+*[_type=='park' && name == $parkName ]
+{'wwww': *[count(park_unit[name == "Coastal Super 23"]) > 0]}
+
+*[_type=='park' && name == $parkName ]{
+  _id, name, park_unit[]->{name,
+                                     price, 
+                                     preowned, 
+                                     justarrived, 
+                                     included[]->{inc_description},
+                                     parkasset->{name, size->{size}, beds->{name}, model_type->{name}, 
+                                     images[0]{'imageUrl':asset->{url}}}, 
+                                      }}

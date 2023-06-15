@@ -20,6 +20,16 @@ export default {
           },
         ],
       },
+      // {
+      //   name: 'park_unit',
+      //   title: 'Park Unit',
+      //   type: 'array',
+      //   of: [
+      //     {
+      //       type: 'park_unit' ,
+      //     },
+      //   ],
+      // },
 
 
     ]

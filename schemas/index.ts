@@ -7,18 +7,18 @@ import region from './region'
 import size from './size'
 import beds from './beds'
 import inc_description_list from './whats-included'
-import years from './static/year'
+
 
 export const schemaTypes = 
    [region, 
     park, 
-    // years,
     model_type,
     manufacturer,
     manufacturerModel,
     park_unit,
     size,
     beds,
-    inc_description_list
+    inc_description_list,
+
 
 ]
