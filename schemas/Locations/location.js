@@ -19,9 +19,14 @@ export default {
             validation: Rule => Rule.required()
         },
         {
-          name: 'description',
-          type: 'string',
+          name: 'longDescription',
+          type: 'text',
           title: 'Long Description'
+        },
+        {
+          name: 'ShortDescription',
+          type: 'text',
+          title: 'Short Description'
         },
         {
           title: 'Date Opens',

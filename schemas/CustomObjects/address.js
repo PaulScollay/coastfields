@@ -12,9 +12,9 @@ export default {
      }
     ],
     fields: [
-      {name: 'street', type: 'string', title: 'Street name'},
-      {name: 'streetNo', type: 'string', title: 'Street number'},
+      {name: 'address', type: 'string', title: 'Address'},
       {name: 'city', type: 'string', title: 'City'},
+      {name: 'county', type: 'string', title: 'County'},
       {name: 'postcode', type: 'string', title: 'Postcode'},
       {
         name: 'location',

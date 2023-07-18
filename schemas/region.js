@@ -6,18 +6,28 @@ export default {
       {
         name: 'name',
         type: 'string',
-        title: 'Name'
+        title: 'Name',
+        validation: Rule => Rule.required()
       },
       {
-        name: 'parks',
-        title: 'Parks',
+        name: 'locations',
+        title: 'locations',
         type: 'array',
         of: [
           {
             type: 'reference',
-            to: { type: 'park' },
+            to: { type: 'location' },
           },
         ],
       },
+      {
+        name: 'Images',
+        type: 'array',
+        of: [
+          {
+            type: 'image',
+          },
+        ],
+      }, 
     ]
   }
