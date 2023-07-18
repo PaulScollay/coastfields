@@ -9,7 +9,7 @@ export default {
         title: 'Name'
       },
       {
-        name: 'person',
+        name: 'people',
         title: 'People',
         type: 'array',
         of: [

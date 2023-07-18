@@ -1,38 +1,37 @@
-*[_type=='park'&& name == 'COASTFIELDS']
-  {name, 'unitType': park_unit[]->{name,
-                                     price, 
-                                     preowned, 
-                                     justarrived, 
-                                     parkasset->{name, size->{size}, 
-                                     images[]{'imageUrl':asset->{url}}, 
-                                     "noOfBeds":beds->{name},
-                                     included[]->{"description":inc_description}}}}
+// *[_type=='park' && name == $parkName]{
+//   "results" : park_unit[@->parkasset->model_type->name == $type && 
+//                         @->parkasset->manufacturer->name == $manufacturer 
+//                        ] ->
+//                                       {price, 
+//                                        name, 
+//                                        preowned, 
+//                                        parkasset->{
+//                                            name, size->{size},   
+//                                           "noOfBeds":beds->{name}, 
+//                                            images[0]{'imageUrl':asset->{url}},
+//                                            model_type->{name},
+//                                            manufacturer->{name} 
+//                                          },
+//                                          included[]->{inc_description}
+//                                         } | order(price asc)
+//                                     } 
 
-*[_type=='park'&& name == $parkName ] { name, 'unitType': *[_type=='park_unit'&& name == "Atlas2" ] }
+// *[_type=='park' && name == $parkName]{
+//   "results" : count(park_unit[@->parkasset->model_type->name == 'Caravan'])}
 
-# With Params
-*[_type=='park'&& name == $parkName ]
-  {name, 'unitType': *[_type=='park_unit'&& name == $unit ]{name,
-                                     stockNo,
-                                     description,
-                                     price, 
-                                     preowned, 
-                                     justarrived, 
-                                     included[]->{inc_description},
-                                     parkasset->{name, size->{size}, 
-                                     images[]{'imageUrl':asset->{url}}, 
-                                     "noOfBeds":beds->{name},
-                                     }}}
+// *[_type=='park' && name == $parkName]{
+//   "results" : park_unit[@->parkasset->model_type->name == $type && 
+//                         @->parkasset->manufacturer->name == $unit &&
+//                         @->preowned == true ] ->
+//                                       {price, name, preowned, parkasset->{name, size->{size},   
+//                                       "noOfBeds":beds->{name}, 
+//                                        images[0]{'imageUrl':asset->{url}},
+//                                        model_type->{name},
+//                                        manufacturer->{name} 
+//                                          }
+//                                     }}
 
-*[_type=='park' && name == $parkName ]
-{'wwww': *[count(park_unit[name == "Coastal Super 23"]) > 0]}
+// *[_type=='park' && name == $parkName]{
+//   name, "manufacturer" : $manufacturer,
+//   "No of Units " : count(park_unit[@->parkasset->manufacturer->name == $manufacturer ])}
 
-*[_type=='park' && name == $parkName ]{
-  _id, name, park_unit[]->{name,
-                                     price, 
-                                     preowned, 
-                                     justarrived, 
-                                     included[]->{inc_description},
-                                     parkasset->{name, size->{size}, beds->{name}, model_type->{name}, 
-                                     images[0]{'imageUrl':asset->{url}}}, 
-                                      }}

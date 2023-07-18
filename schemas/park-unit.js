@@ -25,13 +25,6 @@ export default {
         to: [{type: 'manufacturer-model'}]
 
     },
-      {
-        name: 'type',
-        title: 'Residential Type',
-        type: 'reference',
-        to: [{type: 'model_type'}]
-
-    },
     {
         name: 'price',
         type: 'number',
