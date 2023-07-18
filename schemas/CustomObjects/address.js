@@ -16,6 +16,19 @@ export default {
       {name: 'streetNo', type: 'string', title: 'Street number'},
       {name: 'city', type: 'string', title: 'City'},
       {name: 'postcode', type: 'string', title: 'Postcode'},
+      {
+        name: 'location',
+        type: 'geopoint',
+        title: 'Geo Location',  
+        description: 'Required, must be in United Kingdom',
+        validation: Rule =>
+          Rule.required().custom((location) => {
+            const { lat, lng } = location
+            return lat > 49 && lat < 61 && lng > -10 && lng < 2
+              ? true
+              : 'Location must be in United Kingdom'
+          })
+      },
     ]
   }
   

@@ -8,8 +8,8 @@ export default {
           type: 'string',
           title: 'Name',
           validation: Rule => [
-            Rule.required().min(10).error('A title of min. 5 characters is required'),
-            Rule.max(50).warning('Shorter location names are usually better')
+            Rule.required().min(5).error('A title of min. 5 characters is required'),
+            Rule.max(30).warning('Shorter location names are usually better')
           ]
         },
         {
@@ -18,18 +18,27 @@ export default {
             type: 'address',
             validation: Rule => Rule.required()
         },
-                // {
-        //   title: 'Start date',
-        //   name: 'startDate',
-        //   type: 'datetime',
-        //   validation: Rule => Rule.required().min('2022-03-01T15:00:00.000Z')
-        // },
-        // {
-        //   title: 'End date',
-        //   name: 'endDate',
-        //   type: 'datetime',
-        //   validation: Rule => Rule.required().min(Rule.valueOfField('startDate'))
-        // },
+        {
+          name: 'description',
+          type: 'string',
+          title: 'Long Description'
+        },
+        {
+          title: 'Date Opens',
+          name: 'startDate',
+          type: 'date',
+          validation: Rule => Rule.required().min((new Date())),
+          initialValue: () => ({
+            isHighlighted: false,
+            releaseDate: (new Date()).toISOString()
+          })
+        },
+        {
+          title: 'Date Closes',
+          name: 'endDate',
+          type: 'date',
+          validation: Rule => Rule.required().min(Rule.valueOfField('startDate'))
+        },
         {
           name: 'email',
           title: 'Email',
@@ -61,19 +70,7 @@ export default {
           name: 'bookingURL',
           type: 'url'
         },
-        {
-          name: 'location',
-          type: 'geopoint',
-          title: 'Geo Location',  
-          description: 'Required, must be in United Kingdom',
-          validation: Rule =>
-            Rule.required().custom((location) => {
-              const { lat, lng } = location
-              return lat > 49 && lat < 61 && lng > -10 && lng < 2
-                ? true
-                : 'Location must be in United Kingdom'
-            })
-        },
+
         {
           name: 'faqs',
           title: 'FAQs',
@@ -121,11 +118,7 @@ export default {
           },
         ],
       },
-      {
-        name: 'description',
-        type: 'string',
-        title: 'Long Description'
-      },
+
       {
         name: 'Tags',
         type: 'array',

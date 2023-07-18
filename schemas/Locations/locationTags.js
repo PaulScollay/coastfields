@@ -5,7 +5,7 @@ export default {
     fields: [
       {
         name: 'name',
-        type: 'string',
+        type: 'slug',
         title: 'Location Tag Name',
       }
     ]
