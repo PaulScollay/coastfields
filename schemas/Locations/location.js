@@ -18,6 +18,18 @@ export default {
             type: 'address',
             validation: Rule => Rule.required()
         },
+                // {
+        //   title: 'Start date',
+        //   name: 'startDate',
+        //   type: 'datetime',
+        //   validation: Rule => Rule.required().min('2022-03-01T15:00:00.000Z')
+        // },
+        // {
+        //   title: 'End date',
+        //   name: 'endDate',
+        //   type: 'datetime',
+        //   validation: Rule => Rule.required().min(Rule.valueOfField('startDate'))
+        // },
         {
           name: 'email',
           title: 'Email',
