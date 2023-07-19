@@ -104,6 +104,19 @@ export default defineConfig({
                             .filter('_type == "selfCateringUnitType"')),
                       ] ),
                   ),
+                S.listItem()
+                  .title('Owners')
+                  .child( S.list()
+                    .id('owners')
+                    .items([
+                      S.listItem()
+                        .id('ownerslist')
+                        .title('Owners')
+                        .child(S.documentList()
+                            .title('Owners')
+                            .filter('_type == "selfCatering"')),
+                      ] ),
+                  ),
                   S.listItem()
                   .title('Venues')
                   .child( S.list()
