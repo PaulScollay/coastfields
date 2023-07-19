@@ -66,10 +66,10 @@ export default defineConfig({
                     .items([
                       S.listItem()
                         .id('selfcateringlist')
-                        .title('Self Catering')
+                        .title('Self Catering Units')
                         .child(categoryId =>
                           S.documentList()
-                            .title('Self Catering')
+                            .title('Self Catering Units')
                             .filter('_type == "selfCatering"')),
                       S.listItem()
                         .id('selfcateringfeatures')
