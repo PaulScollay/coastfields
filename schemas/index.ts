@@ -50,7 +50,7 @@ export const schemaTypes =
     slider,
     locationFeatures,
     attractions,
-    venue   ,
+    venue,
     venueType,
     selfCatering,
     selfCateringUnitType,
