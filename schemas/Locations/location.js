@@ -19,6 +19,24 @@ export default {
             validation: Rule => Rule.required()
         },
         {
+          name: 'phone',
+          title: 'Phone',
+          type: 'string',
+          validation: Rule => Rule.custom(phone => {
+              if (typeof phone === 'undefined') {
+                  return true // Allow undefined values
+              }
+              
+              return phone.toLowerCase()
+                  .match(
+                      /^(?:0|\+?44)(?:\d\s?){9,10}$/
+                    )
+                    
+                  ? true
+                  : 'This is not a valid uk phone number'
+            })
+        },
+        {
           name: 'longDescription',
           type: 'text',
           title: 'Long Description'
@@ -71,6 +89,17 @@ export default {
           validation: Rule => Rule.required()
          },
          {
+          name: 'venus',
+          title: 'Venues',
+          type: 'array',
+          of: [
+            {
+              type: 'reference',
+              to: { type: 'venue' },
+            },
+          ],
+        },
+         {
           title: 'Booking URL',
           name: 'bookingURL',
           type: 'url'
@@ -104,7 +133,17 @@ export default {
         type: 'image',
       },
       {
+        name: 'Files',
+        type: 'array',
+        of: [
+          {
+            type: 'image',
+          },
+        ],
+      }, 
+      {
         name: 'Images',
+        title: 'Images',
         type: 'array',
         of: [
           {

@@ -7,12 +7,16 @@ import region from './region'
 import size from './size'
 import location from './Locations/location'
 import address from './CustomObjects/address'
+import generalContent from './CustomObjects/mediaContent'
 import LocationType from './Locations/LocationType'
 import locationFeatures from './Locations/locationFeatures'
 import LocationTags from './Locations/locationTags'
 import content from './content.js'
+import attractions from './attractions.js'
 import slider from './CustomObjects/numberSlider.js'
 import locationPagelink from './Locations/locationPageLinks.js'
+import venueType from './Venue/venueType.js'
+import venue from './Venue/venue.js'
 import inc_description_list from './whats-included'
 
 
@@ -27,11 +31,15 @@ export const schemaTypes =
     // inc_description_list,
     location,
     address,
+    generalContent,
     LocationType,
     content,
     LocationTags,
     locationPagelink,
     slider,
-    locationFeatures
+    locationFeatures,
+    attractions,
+    venue   ,
+    venueType,
 
 ]
