@@ -20,16 +20,16 @@ export const bedTypeCount = defineType({
   fields: [
     defineField({
       name: 'Name',
-      type: 'array',
-      of: [
-        {
-          type: 'bedType',
-        },
-      ],
-    }),
+          type: 'reference',
+          to: { type: 'bedType' },
+        }),
     defineField({
         name: 'bedCount',
+        title: 'No Of Beds',
         type: 'number',
+        options: {
+            list: [1,2,3,4,5,6,7,8,9,10],
+          },
       }),
   ],
 })
