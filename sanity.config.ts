@@ -20,8 +20,7 @@ export default defineConfig({
               .items([
                 S.listItem()
                 .title('Region')
-                .child( categoryId =>
-                        S.documentList()
+                .child(  S.documentList()
                           .title('Regions')
                           .filter('_type == "region"')),
                 S.listItem()
@@ -32,29 +31,25 @@ export default defineConfig({
                       S.listItem()
                         .id('location1')
                         .title('Locations')
-                        .child(categoryId =>
-                          S.documentList()
+                        .child( S.documentList()
                             .title('Locations')
                             .filter('_type == "location"')),
                       S.listItem()
                         .id('locationTypes')
                         .title('Location Types')
-                        .child(categoryId =>
-                          S.documentList()
+                        .child( S.documentList()
                             .title('Location Types')
                             .filter('_type == "LocationType"')),
                       S.listItem()
                         .id('locationFeatures')
                         .title('Location Features')
-                        .child(categoryId =>
-                          S.documentList()
+                        .child( S.documentList()
                             .title('Location Features')
                             .filter('_type == "locationFeatures"')),
                       S.listItem()
                         .id('locationtag')
                         .title('Location Tags')
-                        .child(categoryId =>
-                          S.documentList()
+                        .child( S.documentList()
                             .title('Location Tags')
                             .filter('_type == "locationtag"')),
                       ] ),
@@ -67,22 +62,19 @@ export default defineConfig({
                       S.listItem()
                         .id('selfcateringlist')
                         .title('Self Catering Units')
-                        .child(categoryId =>
-                          S.documentList()
+                        .child(  S.documentList()
                             .title('Self Catering Units')
                             .filter('_type == "selfCatering"')),
                       S.listItem()
                         .id('selfcateringfeatures')
                         .title('Self Catering Features')
-                        .child(categoryId =>
-                          S.documentList()
+                        .child( S.documentList()
                             .title('Self Catering Features')
                             .filter('_type == "selfCateringFeatures"')),
                       S.listItem()
                         .id('selfcateringunittypes')
                         .title('Self Catering Unit Types')
-                        .child(categoryId =>
-                          S.documentList()
+                        .child( S.documentList()
                             .title('Location Features')
                             .filter('_type == "selfCateringUnitType"')),
                       ] ),
@@ -95,24 +87,40 @@ export default defineConfig({
                       S.listItem()
                         .id('touringlist')
                         .title('Touring')
-                        .child(categoryId =>
-                          S.documentList()
+                        .child(S.documentList()
                             .title('Self Catering')
                             .filter('_type == "selfCatering"')),
                       S.listItem()
                         .id('selfcateringfeatures')
                         .title('Touring Features')
-                        .child(categoryId =>
-                          S.documentList()
+                        .child(S.documentList()
                             .title('Touring Features')
                             .filter('_type == "selfCateringFeatures"')),
                       S.listItem()
                         .id('selfcateringunittypes')
                         .title('Touring Unit Types')
-                        .child(categoryId =>
-                          S.documentList()
+                        .child(S.documentList()
                             .title('Location Features')
                             .filter('_type == "selfCateringUnitType"')),
+                      ] ),
+                  ),
+                  S.listItem()
+                  .title('Venues')
+                  .child( S.list()
+                    .id('venueslist')
+                    .items([
+                      S.listItem()
+                        .id('venueslistitem')
+                        .title('Venues')
+                        .child(S.documentList()
+                            .title('Venues')
+                            .filter('_type == "venue"')),
+                      S.listItem()
+                        .id('venuetypes')
+                        .title('Venue Types')
+                        .child(S.documentList()
+                            .title('Venue Types')
+                            .filter('_type == "venueType"')),
                       ] ),
                   ),
             
