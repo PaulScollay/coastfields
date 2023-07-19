@@ -162,17 +162,7 @@ export default {
           },
         ],
       },
-      {
-        text: 'Self Catering Units',
-        name: 'selfCateringUnits',
-        type: 'array',
-        of: [
-          {
-            type: 'reference',
-            to: { type: 'selfCatering' },
-          },
-        ]
-      },
+
       {
         name: 'Tags',
         type: 'array',

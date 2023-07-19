@@ -9,6 +9,8 @@ import location from './Locations/location'
 import address from './CustomObjects/address'
 import generalContent from './CustomObjects/mediaContent'
 import durationType from './CustomObjects/Duration/durationType'
+import { bedType, bedTypeCount } from './CustomObjects/bedTypes'
+import gallery from './CustomObjects/imageGallery'
 import timeValue from './CustomObjects/Duration/timeValueType'
 import LocationType from './Locations/LocationType'
 import locationFeatures from './Locations/locationFeatures'
@@ -21,6 +23,8 @@ import venueType from './Venue/venueType.js'
 import venue from './Venue/venue.js'
 import selfCatering from './Groups/selfCatering/selfCatering.js'
 import selfCateringFeatures from './Groups/selfCatering/selfCateringFeatures.js'
+import selfCateringUnitType from './Groups/selfCatering/selfCateringUnitTypes.js'
+import searchTags from './Tags/searchTags.js'
 import inc_description_list from './whats-included'
 
 
@@ -36,18 +40,23 @@ export const schemaTypes =
     location,
     address,
     generalContent,
+    bedType,
+    bedTypeCount,
     LocationType,
-    content,
-    LocationTags,
     locationPagelink,
+    LocationTags,
+    content,
+    gallery,
     slider,
     locationFeatures,
     attractions,
     venue   ,
     venueType,
     selfCatering,
+    selfCateringUnitType,
+    selfCateringFeatures,
     durationType,
     timeValue,
-    selfCateringFeatures
+    searchTags
 
 ]

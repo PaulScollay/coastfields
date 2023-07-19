@@ -7,11 +7,11 @@ export default {
   type: 'object',
   fields: [
     defineField({
-      name: 'start',
+      name: 'checkin',
       type: 'timeValue',
     }),
     defineField({
-      name: 'end',
+      name: 'checkout',
       type: 'timeValue',
     }),
   ],

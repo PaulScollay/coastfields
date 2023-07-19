@@ -1,3 +1,5 @@
+import {defineField, defineType} from 'sanity'
+
 export default {
     name: 'selfCatering',
     type: 'document',
@@ -87,6 +89,12 @@ export default {
             initialValue: false,
         },
         {
+            title: 'Hot Tub',
+            name: 'hotTub',
+            type: 'boolean',
+            initialValue: false,
+        },
+        {
             title: 'Extras',
             name: 'extras',
             type: 'text',
@@ -113,137 +121,124 @@ export default {
               },
             ],
           },
+          {
+            title: 'Flash Message',
+            name: 'flashMessage',
+            type: 'text',
+          },
+          {
+            title: 'Floor Plan',
+            name: 'floorPlan',
+            type: 'image',
+          },
 
+          {
+            name: 'gallery',
+            title: 'Images',
+            type: 'array',
+            of: [
+              {
+                type: 'image',
+              }
+            ],
+            options: {
+              layout: 'grid',
+            },
+          }, 
+          //TODO: Replace Images (above) with Gallery (below)
+          // {
+          //   title: 'Gallery',
+          //   name: 'selfCateringGallery',
+          //   type: 'gallery',
+          // },
 
-
-
-
-
-
-
-
-      //   {
-      //     name: 'longDescription',
-      //     type: 'text',
-      //     title: 'Long Description'
-      //   },
-      //   {
-      //     name: 'ShortDescription',
-      //     type: 'text',
-      //     title: 'Short Description'
-      //   },
-      //   {
-      //     title: 'Date Opens',
-      //     name: 'startDate',
-      //     type: 'date',
-      //     validation: Rule => Rule.required().min((new Date())),
-      //     initialValue: () => ({
-      //       isHighlighted: false,
-      //       releaseDate: (new Date()).toISOString()
-      //     })
-      //   },
-      //   {
-      //     title: 'Date Closes',
-      //     name: 'endDate',
-      //     type: 'date',
-      //     validation: Rule => Rule.required().min(Rule.valueOfField('startDate'))
-      //   },
-      //   {
-      //     name: 'email',
-      //     title: 'Email',
-      //     type: 'string',
-      //     validation: Rule => Rule.custom(email => {
-      //         if (typeof email === 'undefined') {
-      //             return true // Allow undefined values
-      //         }
-              
-      //         return email.toLowerCase()
-      //             .match(
-      //                 /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      //               )
-                    
-      //             ? true
-      //             : 'This is not a valid email'
-      //       })
-      //   },
-
-      //   {
-      //     name: 'locationtype',
-      //     title: 'Location Type',
-      //     type: 'reference',
-      //     to: [{type: 'LocationType'}],
-      //     validation: Rule => Rule.required()
-      //    },
-      //    {
-      //     name: 'venus',
-      //     title: 'Venues',
-      //     type: 'array',
-      //     of: [
-      //       {
-      //         type: 'reference',
-      //         to: { type: 'venue' },
-      //       },
-      //     ],
-      //   },
-      //    {
-      //     title: 'Booking URL',
-      //     name: 'bookingURL',
-      //     type: 'url'
-      //   },
-
-      //   {
-      //     name: 'faqs',
-      //     title: 'FAQs',
-      //     type: 'content',
-      // },
-
-      // {
-      //   name: 'logo',
-      //   type: 'array',
-      //   title: 'Logo',
-      //   type: 'image',
-      // },
-      // {
-      //   name: 'Files',
-      //   type: 'array',
-      //   of: [
-      //     {
-      //       type: 'image',
-      //     },
-      //   ],
-      // }, 
-      // {
-      //   name: 'Images',
-      //   title: 'Images',
-      //   type: 'array',
-      //   of: [
-      //     {
-      //       type: 'image',
-      //     },
-      //   ],
-      // }, 
-      // {
-      //   name: 'pageLinks',
-      //   title: 'Page Links',
-      //   type: 'array',
-      //   of: [
-      //     {
-      //       type: 'reference',
-      //       to: { type: 'locationPagelink' },
-      //     },
-      //   ],
-      // },
-
-      // {
-      //   name: 'Tags',
-      //   type: 'array',
-      //   of: [
-      //     {
-      //       type: 'reference',
-      //       to: { type: 'locationtag' },
-      //     },
-      //   ],
-      // }, 
+          {
+            name: 'locations',
+            text: 'Locations',
+            type: 'array',
+            of: [
+              {
+                type: 'reference',
+                to: { type: 'location' },
+              },
+            ]
+          },
+          {
+            name: 'longDescription',
+            type: 'text',
+            title: 'Long Description'
+          },
+          {
+            name: 'ShortDescription',
+            type: 'text',
+            title: 'Short Description'
+          },
+          {
+            name: 'bedType',
+            text: 'Bed Types',
+            type: 'array',
+            of: [
+              {
+                name: 'bedTypeCount2',
+                type: 'bedTypeCount',
+              },
+            ]
+          },
+          {
+            name: 'form',
+            type: 'number',
+            description: 'Select form type',
+            options: {
+              list: [1,2,3,4,5,6,7,8,9,10],
+            },
+          },
+          
+          {
+            title: 'Pets',
+            name: 'pets',
+            type: 'number',
+            initialValue: 0,
+          },
+          {
+            title: 'Price',
+            name: 'price',
+            type: 'number',
+            initialValue: 0,
+          },
+          {
+            title: 'Reviews',
+            name: 'reviews',
+            type: 'text',
+          },
+          {
+            name: 'unitTypes',
+            title: 'Self Catering Unit Types',
+            type: 'reference',
+            to: { type: 'selfCateringUnitType' },
+            validation: Rule => Rule.required()
+          },
+          {
+            name: 'searchTags',
+            text: 'Search Tags',
+            type: 'array',
+            of: [
+              {
+                type: 'reference',
+                to: { type: 'searchTags' },
+              },
+            ]
+          },
     ],
     
   }
+
+
+
+  // options: {
+  //   source: 'title',
+  //   maxLength: 200, // will be ignored if slugify is set
+  //   slugify: input => input
+  //                        .toLowerCase()
+  //                        .replace(/\s+/g, '-')
+  //                        .slice(0, 200)
+  // }
