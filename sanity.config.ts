@@ -19,6 +19,12 @@ export default defineConfig({
               .title('Menu')
               .items([
                 S.listItem()
+                .title('Region')
+                .child( categoryId =>
+                        S.documentList()
+                          .title('Regions')
+                          .filter('_type == "region"')),
+                S.listItem()
                   .title('Location')
                   .child( S.list()
                     .id('location1')
@@ -81,35 +87,34 @@ export default defineConfig({
                             .filter('_type == "selfCateringUnitType"')),
                       ] ),
                   ),
-                  // S.listItem()
-                  // .title('Groups')
-                  // .child( S.list()
-                  //   .id('location1')
-                  //   .items([
-                  //     S.listItem()
-                  //       .id('selfCatering')
-                  //       .title('Self Catering')
-                  //       .child(categoryId =>
-                  //         S.documentList()
-                  //           .title('Self Catering')
-                  //           .filter('_type == "selfCatering"')),
-                  //     ] ),
-                  // ),
-                // S.listItem()
-                //   .title('Self Catering')
-                //   .child(categoryId =>
-                //     S.documentList()
-                //       .title('Self Catering')
-                //       .filter('_type == "selfCatering"')
-                //   ),
-                // S.listItem()
-                //   .title('Touring')
-                //   .child(categoryId =>
-                //     S.documentList()
-                //       .title('Self Catering')
-                //       .filter('_type == "selfCatering"')
-                //   ),
-
+                S.listItem()
+                  .title('Touring')
+                  .child( S.list()
+                    .id('touring')
+                    .items([
+                      S.listItem()
+                        .id('touringlist')
+                        .title('Touring')
+                        .child(categoryId =>
+                          S.documentList()
+                            .title('Self Catering')
+                            .filter('_type == "selfCatering"')),
+                      S.listItem()
+                        .id('selfcateringfeatures')
+                        .title('Touring Features')
+                        .child(categoryId =>
+                          S.documentList()
+                            .title('Touring Features')
+                            .filter('_type == "selfCateringFeatures"')),
+                      S.listItem()
+                        .id('selfcateringunittypes')
+                        .title('Touring Unit Types')
+                        .child(categoryId =>
+                          S.documentList()
+                            .title('Location Features')
+                            .filter('_type == "selfCateringUnitType"')),
+                      ] ),
+                  ),
             
                   // .child(
                   //   S.list()
