@@ -19,7 +19,8 @@ import slider from './CustomObjects/numberSlider.js'
 import locationPagelink from './Locations/locationPageLinks.js'
 import venueType from './Venue/venueType.js'
 import venue from './Venue/venue.js'
-import selfCatering from './Groups/selfCatering.js'
+import selfCatering from './Groups/selfCatering/selfCatering.js'
+import selfCateringFeatures from './Groups/selfCatering/selfCateringFeatures.js'
 import inc_description_list from './whats-included'
 
 
@@ -46,6 +47,7 @@ export const schemaTypes =
     venueType,
     selfCatering,
     durationType,
-    timeValue
+    timeValue,
+    selfCateringFeatures
 
 ]
