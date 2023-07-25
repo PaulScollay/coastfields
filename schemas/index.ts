@@ -26,6 +26,11 @@ import selfCatering from './Groups/selfCatering/selfCatering.js'
 import selfCateringFeatures from './Groups/selfCatering/selfCateringFeatures.js'
 import selfCateringUnitType from './Groups/selfCatering/selfCateringUnitTypes.js'
 import selfcateringtag from './Groups/selfCatering/selfCateringTags.js'
+import touring from './Groups/touring/touring.js'
+import touringFeatures from './Groups/touring/touringFeatures.js'
+import touringUnitType from './Groups/touring/touringUnitTypes.js'
+import touringsuitability from './Groups/touring/touringSuitability.js'
+import touringtag from './Groups/touring/touringTags.js'
 import searchTags from './Tags/searchTags.js'
 import inc_description_list from './whats-included'
 
@@ -58,6 +63,11 @@ export const schemaTypes =
     selfCateringUnitType,
     selfCateringFeatures,
     selfcateringtag,
+    touring,
+    touringFeatures,
+    touringUnitType,
+    touringsuitability,
+    touringtag,
     durationType,
     timeValue,
     searchTags,

@@ -1,10 +1,10 @@
 export default {
-    name: 'selfCateringFeatures',
+    name: 'Touring Features',
     type: 'document',
-    title: 'Self Catering Features',
+    title: 'Touring Features',
     fields: [
       {
-        name: 'icon',
+        name: 'touringFeatures',
         type: 'string',
         title: 'Feature'
       },

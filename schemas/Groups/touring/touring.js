@@ -1,9 +1,9 @@
 import {defineField, defineType} from 'sanity'
 
 export default {
-    name: 'selfCatering',
+    name: 'touring',
     type: 'document',
-    title: 'Self Catering',
+    title: 'Touring',
     fields: [
         {
           name: 'name',
@@ -20,10 +20,10 @@ export default {
             type: 'url'
         },
         {
-            title: 'Accessible',
-            name: 'accessible',
+            title: 'Adults Only',
+            name: 'adulstOnly',
             type: 'boolean',
-            initialValue: false
+            initialValue: true
         },
         {
             title: 'Active',
@@ -32,32 +32,10 @@ export default {
             initialValue: true
         },
         {
-            title: 'Sleep Capacity',
-            name: 'sleepCapacity',
-            type: 'number',
-            initialValue: 2,
-            validation: Rule => Rule.required()
-        },
-        {
-            title: 'Bathrooms',
-            name: 'bathrooms',
-            type: 'number',
-            initialValue: 1,
-            validation: Rule => Rule.required()
-        },
-        {
-            title: 'Bedrooms',
-            name: 'bedrooms',
-            type: 'number',
-            initialValue: 1,
-            validation: Rule => Rule.required()
-        },
-        {
-            title: 'Beds',
-            name: 'beds',
-            type: 'number',
-            initialValue: 2,
-            validation: Rule => Rule.required()
+            title: 'Allow Awnings',
+            name: 'allowAwnings',
+            type: 'boolean',
+            initialValue: true
         },
         {
             title: 'Car Parking',
@@ -83,14 +61,14 @@ export default {
             initialValue: false,
         },
         {
-            title: 'EP Mapping',
-            name: 'epMapping',
+            title: 'Electric Hookup',
+            name: 'electricHookup',
             type: 'boolean',
             initialValue: false,
         },
         {
-            title: 'Hot Tub',
-            name: 'hotTub',
+            title: 'EP Mapping',
+            name: 'epMapping',
             type: 'boolean',
             initialValue: false,
         },
@@ -127,10 +105,11 @@ export default {
             type: 'text',
           },
           {
-            title: 'Floor Plan',
-            name: 'floorPlan',
-            type: 'image',
-          },
+            title: 'Fully Serviced',
+            name: 'fullyServiced',
+            type: 'boolean',
+            initialValue: false,
+         },
 
           {
             name: 'gallery',
@@ -145,13 +124,28 @@ export default {
               layout: 'grid',
             },
           }, 
-          //TODO: Replace Images (above) with Gallery (below)
-          // {
-          //   title: 'Gallery',
-          //   name: 'selfCateringGallery',
-          //   type: 'gallery',
-          // },
-
+          {
+            title: 'Grass',
+            name: 'grass',
+            type: 'boolean',
+            initialValue: false,
+         },
+          {
+            title: 'Guide Price',
+            name: 'guidePrice',
+            type: 'number',
+         },
+         {
+            title: 'Hard Standing',
+            name: 'hardStanding',
+            type: 'boolean',
+            initialValue: false,
+         },
+         {
+            title: 'Important Information',
+            name: 'importantInformation',
+            type: 'text',
+         },
           {
             name: 'locations',
             text: 'Locations',
@@ -161,42 +155,30 @@ export default {
                 type: 'reference',
                 to: { type: 'location' },
               },
-            ]
+            ],
+            validation: Rule => Rule.required()
           },
           {
-            name: 'longDescription',
-            type: 'text',
-            title: 'Long Description'
-          },
-          {
-            name: 'ShortDescription',
-            type: 'text',
-            title: 'Short Description'
-          },
-          //TODO: SORT BED TYPES
-          {
-            name: 'bedType',
-            text: 'Bed Types',
-            type: 'array',
-            of: [
-              {
-                name: 'bedTypeCount2',
-                type: 'bedTypeCount',
-              },
-            ]
+            name: 'MaxPeople',
+            type: 'number',
+            title: 'Max People',
+            validation: Rule => Rule.required()
           },
           
           {
-            title: 'Pets',
-            name: 'pets',
+            title: 'No Of Pitches Available',
+            name: 'noOfPitchesAvailable',
             type: 'number',
-            options: {
-                list: [0,1,2,3,4,5,6,7,8,9,10],
-              },
+            validation: Rule => Rule.required()
           },
           {
-            title: 'Price',
-            name: 'price',
+            name: 'openCloseDate',
+            type: 'duration',
+            title: 'Open/Close Dates',
+         },
+          {
+            title: 'Pets',
+            name: 'pets',
             type: 'number',
             initialValue: 0,
           },
@@ -205,12 +187,44 @@ export default {
             name: 'reviews',
             type: 'text',
           },
+
+          {
+            name: 'sitePlan',
+            title: 'Images',
+            type: 'array',
+            of: [
+              {
+                type: 'image',
+              }
+            ],
+            options: {
+              layout: 'grid',
+            },
+          }, 
+          {
+            name: 'suitability',
+            text: 'Suitability',
+            type: 'array',
+            of: [
+              {
+                type: 'reference',
+                to: { type: 'touringSuitability' },
+              },
+            ],
+            validation: Rule => Rule.required()
+          },
+
           {
             name: 'unitTypes',
-            title: 'Self Catering Unit Types',
+            title: 'Touring Unit Types',
             type: 'reference',
-            to: { type: 'selfCateringUnitType' },
+            to: { type: 'touringUnitType' },
             validation: Rule => Rule.required()
+          },
+          {
+            title: 'Zone',
+            name: 'zone',
+            type: 'text',
           },
           {
             name: 'searchTags',
@@ -219,21 +233,10 @@ export default {
             of: [
               {
                 type: 'reference',
-                to: { type: 'selfcateringtag' },
+                to: { type: 'touringtag' },
               },
             ]
           },
     ],
     
   }
-
-
-
-  // options: {
-  //   source: 'title',
-  //   maxLength: 200, // will be ignored if slugify is set
-  //   slugify: input => input
-  //                        .toLowerCase()
-  //                        .replace(/\s+/g, '-')
-  //                        .slice(0, 200)
-  // }

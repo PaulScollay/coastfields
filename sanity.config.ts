@@ -97,20 +97,26 @@ export default defineConfig({
                         .id('touringlist')
                         .title('Touring')
                         .child(S.documentList()
-                            .title('Self Catering')
-                            .filter('_type == "selfCatering"')),
+                            .title('Touring')
+                            .filter('_type == "touring"')),
                       S.listItem()
-                        .id('selfcateringfeatures')
+                        .id('touringFeatures')
                         .title('Touring Features')
                         .child(S.documentList()
                             .title('Touring Features')
-                            .filter('_type == "selfCateringFeatures"')),
+                            .filter('_type == "touringFeatures"')),
                       S.listItem()
-                        .id('selfcateringunittypes')
+                        .id('touringUnitType')
                         .title('Touring Unit Types')
                         .child(S.documentList()
-                            .title('Location Features')
-                            .filter('_type == "selfCateringUnitType"')),
+                            .title('Touring Unit Types')
+                            .filter('_type == "touringUnitType"')),
+                      S.listItem()
+                        .id('touringSuitability')
+                        .title('Touring Suitability')
+                        .child(S.documentList()
+                            .title('Touring Suitability')
+                            .filter('_type == "touringSuitability"')),
                       ] ),
                   ),
                 S.listItem()
