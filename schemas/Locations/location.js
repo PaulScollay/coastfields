@@ -50,7 +50,7 @@ export default {
           title: 'Date Opens',
           name: 'startDate',
           type: 'date',
-          validation: Rule => Rule.required().min((new Date())),
+          // validation: Rule => Rule.required().min((new Date())),
           initialValue: () => ({
             isHighlighted: false,
             releaseDate: (new Date()).toISOString()

@@ -1,7 +1,7 @@
 export default {
-    name: 'locationtag',
+    name: 'selfcateringtag',
     type: 'document',
-    title: 'Location Search Tags',
+    title: 'Self Catering Search Tags',
     fields: [
       {
         name: 'tag',

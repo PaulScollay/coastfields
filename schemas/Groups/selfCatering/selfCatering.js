@@ -189,7 +189,9 @@ export default {
             title: 'Pets',
             name: 'pets',
             type: 'number',
-            initialValue: 0,
+            options: {
+                list: [0,1,2,3,4,5,6,7,8,9,10],
+              },
           },
           {
             title: 'Price',
@@ -216,7 +218,7 @@ export default {
             of: [
               {
                 type: 'reference',
-                to: { type: 'searchTags' },
+                to: { type: 'selfcateringtag' },
               },
             ]
           },

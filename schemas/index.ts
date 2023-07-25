@@ -7,6 +7,7 @@ import region from './region'
 import size from './size'
 import location from './Locations/location'
 import address from './CustomObjects/address'
+import tagInput from './CustomObjects/tag.js'
 import generalContent from './CustomObjects/mediaContent'
 import durationType from './CustomObjects/Duration/durationType'
 import { bedType, bedTypeCount } from './CustomObjects/bedTypes'
@@ -24,6 +25,7 @@ import venue from './Venue/venue.js'
 import selfCatering from './Groups/selfCatering/selfCatering.js'
 import selfCateringFeatures from './Groups/selfCatering/selfCateringFeatures.js'
 import selfCateringUnitType from './Groups/selfCatering/selfCateringUnitTypes.js'
+import selfcateringtag from './Groups/selfCatering/selfCateringTags.js'
 import searchTags from './Tags/searchTags.js'
 import inc_description_list from './whats-included'
 
@@ -55,8 +57,10 @@ export const schemaTypes =
     selfCatering,
     selfCateringUnitType,
     selfCateringFeatures,
+    selfcateringtag,
     durationType,
     timeValue,
-    searchTags
+    searchTags,
+    tagInput
 
 ]

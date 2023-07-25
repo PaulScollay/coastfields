@@ -27,6 +27,7 @@ export default defineConfig({
                   .title('Location')
                   .child( S.list()
                     .id('location1')
+                    .title('Location')
                     .items([
                       S.listItem()
                         .id('location1')
@@ -48,15 +49,16 @@ export default defineConfig({
                             .filter('_type == "locationFeatures"')),
                       S.listItem()
                         .id('locationtag')
-                        .title('Location Tags')
+                        .title('Location Search Tags')
                         .child( S.documentList()
-                            .title('Location Tags')
+                            .title('Location Search Tags')
                             .filter('_type == "locationtag"')),
                       ] ),
                   ),
                 S.listItem()
                   .title('Self Catering')
                   .child( S.list()
+                    .title('Self Catering')
                     .id('selfcatering')
                     .items([
                       S.listItem()
@@ -77,12 +79,19 @@ export default defineConfig({
                         .child( S.documentList()
                             .title('Location Features')
                             .filter('_type == "selfCateringUnitType"')),
-                      ] ),
+                      S.listItem()
+                      .id('selfcateringtag')
+                      .title('Self Catering Tags')
+                      .child( S.documentList()
+                          .title('Self Catering Search Tags')
+                          .filter('_type == "selfcateringtag"')),
+                    ] ),
                   ),
                 S.listItem()
                   .title('Touring')
                   .child( S.list()
                     .id('touring')
+                    .title('Touring')                    
                     .items([
                       S.listItem()
                         .id('touringlist')
@@ -121,6 +130,7 @@ export default defineConfig({
                   .title('Venues')
                   .child( S.list()
                     .id('venueslist')
+                    .title('Venues')                    
                     .items([
                       S.listItem()
                         .id('venueslistitem')
