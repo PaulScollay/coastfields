@@ -189,7 +189,7 @@ export default {
 
           {
             name: 'sitePlan',
-            title: 'Images',
+            title: 'sitePlan',
             type: 'array',
             of: [
               {
