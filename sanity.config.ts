@@ -117,6 +117,12 @@ export default defineConfig({
                         .child(S.documentList()
                             .title('Touring Suitability')
                             .filter('_type == "touringSuitability"')),
+                      S.listItem()
+                        .id('touringTag')
+                        .title('Touring Tags')
+                        .child(S.documentList()
+                            .title('Touring Tags')
+                            .filter('_type == "touringtag"')),
                       ] ),
                   ),
                 S.listItem()

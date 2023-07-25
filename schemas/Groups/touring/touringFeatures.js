@@ -1,5 +1,5 @@
 export default {
-    name: 'Touring Features',
+    name: 'touringFeatures',
     type: 'document',
     title: 'Touring Features',
     fields: [

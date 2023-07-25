@@ -11,7 +11,6 @@ export default {
           title: 'Unit Name',
           validation: Rule => [
             Rule.required().min(5).error('A title of min. 5 characters is required'),
-            Rule.max(30).warning('Shorter location names are usually better')
           ]
         },
         {
@@ -95,7 +94,7 @@ export default {
             of: [
               {
                 type: 'reference',
-                to: { type: 'selfCateringFeatures' },
+                to: { type: 'touringFeatures' },
               },
             ],
           },
