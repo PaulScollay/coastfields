@@ -40,7 +40,7 @@ export default {
             title: 'Car Parking',
             name: 'carParking',
             type: 'boolean',
-            initialValue: false,
+            initialValue: true,
         },
         {
             name: 'checkInCheckOut',

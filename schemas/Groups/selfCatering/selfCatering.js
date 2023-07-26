@@ -206,8 +206,8 @@ export default {
             type: 'text',
           },
           {
-            name: 'unitTypes',
-            title: 'Self Catering Unit Types',
+            name: 'unitType',
+            title: 'Self Catering Unit Type',
             type: 'reference',
             to: { type: 'selfCateringUnitType' },
             validation: Rule => Rule.required()

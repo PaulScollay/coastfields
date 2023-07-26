@@ -4,7 +4,7 @@ export default {
     title: 'Self Catering Features',
     fields: [
       {
-        name: 'icon',
+        name: 'name',
         type: 'string',
         title: 'Feature'
       },

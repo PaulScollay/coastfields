@@ -55,6 +55,7 @@ export default defineConfig({
                             .filter('_type == "locationtag"')),
                       ] ),
                   ),
+                S.divider(),
                 S.listItem()
                   .title('Self Catering')
                   .child( S.list()
@@ -125,6 +126,7 @@ export default defineConfig({
                             .filter('_type == "touringtag"')),
                       ] ),
                   ),
+                S.divider(),
                 S.listItem()
                   .title('Owners')
                   .child( S.list()
