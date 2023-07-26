@@ -1,3 +1,53 @@
+//*[_type == "movie"]{_id, name, people[]->{name}}
+//*[_type == "region"]{_id, name, locations[]->{name}}
+
+//QUERY row 2 "get Units By Location"
+// *[_type == "location" && name == "COASTFIELDS HOLIDAY VILLAGE"]{
+//   _id, name,
+//   "selfCaterings": *[_type == "selfCatering" && references(^._id)]{name}
+// }
+// END row 2
+
+//QUERY row 3 "get Units By Location and Unit Type"
+// *[_type == "location" && name == "COASTFIELDS HOLIDAY VILLAGE"]{
+//   _id, name,
+//   "selfCaterings": *[_type == "selfCatering" && references(^._id) && unitType->name == "Lodge"]{name, "unit" : unitType->name}
+// }
+// END row 3
+
+//QUERY row 4 "List of Unit Types for specific groups i.e. All types in Self-Catering - Lodges. Caravans, Apartments"
+// *[_type == "location"]{
+//   _id, name,
+//   "selfCaterings": array::unique(*[_type == "selfCatering" && references(^._id) ].unitType->name)
+// }
+// END row 4
+
+//QUERY row 5 "List of Unit Types for specific groups i.e. All types in Self-Catering - Lodges. Caravans, Apartments"
+// *[_type == "location" && name == "COASTFIELDS HOLIDAY VILLAGE"]{
+//   _id, name,
+//   "selfCaterings": array::unique(*[_type == "selfCatering" && references(^._id) ].unitType->name)
+// }
+// END row 5
+
+//QUERY row 30 "get Region Details by Location"
+// *[_type == "selfCateringFeatures" && name == "BBQ"]{
+//   _id, name,
+//   "selfCaterings": array::unique(*[_type == "selfCatering" && references(^._id) ].name)
+// }
+// END row 30
+
+
+
+
+
+
+
+
+
+
+
+
+
 // *[_type=='park' && name == $parkName]{
 //   "results" : park_unit[@->parkasset->model_type->name == $type && 
 //                         @->parkasset->manufacturer->name == $manufacturer 
