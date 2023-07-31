@@ -1,7 +1,9 @@
-import {defineConfig} from 'sanity'
+import {ObjectInputProps, defineConfig, isObjectInputProps} from 'sanity'
 import {deskTool} from 'sanity/desk'
+import {Stack} from '@sanity/ui'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
+import {Progress} from './schemas/CustomObjects/progressBar/progressBar'
 
 export default defineConfig({
   name: 'default',
@@ -9,6 +11,23 @@ export default defineConfig({
 
   projectId: 'xd6ol1fh',
   dataset: 'production',
+
+  form: {
+    components: {
+      input: (props) => {
+        if (
+          props.id === 'root' &&
+          props.schemaType.type?.name === 'document' &&
+          props.schemaType.name === 'noSchemaSelected'
+        ) {
+          return Progress(props as ObjectInputProps)
+        }
+
+        return props.renderDefault(props)
+      },
+    },
+  },
+  
 
   plugins: [ 
             visionTool(),

@@ -44,6 +44,31 @@
     //                                  ]{name})}
 // END row 11
 
+//QUERY row 12 "get Units By Tags"
+// *[_type == "selfcateringtag" && tag == "good-for-kids" ]{
+//     _id, tag,
+//     "selfCaterings": *[_type == "selfCatering" && references(^._id)]{name}
+//   }
+//
+
+//QUERY row 13 "get Units By Tags/Location"
+// *[_type == "selfcateringtag" && tag == "good-for-kids" ]{
+//     _id, tag,
+//     "selfCaterings": *[_type == "selfCatering" && references(^._id)
+//                       && count((locations[]->name)[@ == "COASTFIELDS HOLIDAY VILLAGE"]) > 0 ]{name} }
+  
+//
+
+
+
+
+//QUERY row 12 "get Units By Tags"
+// *[_type == "selfcateringtag" && tag == "good-for-kids" ]{
+//     _id, tag,
+//     "selfCaterings": *[_type == "selfCatering" && references(^._id)]{name}
+//   }
+//
+
 //QUERY row 24 "get Locations"
 //*[_type=='region' ]{ _id, name, locations[]->{_id, name}}
 // END row 24
@@ -63,12 +88,21 @@
 // END row 27
 
 
-
+//QUERY row 29 "get Regions"
+// *[_type=='region' ]
+// {
+//   _id, name, "images":Images[], "locations":locations[]->{_id,name}
+// }
+// END row 29
 
 
 
 //QUERY row 30 "get Region by Location"
-//*[_type=='region' && _id == $regionId]{ _id, name, locations[]->{_id, name}}
+// *[_type=='location'  && name == "COASTFIELDS HOLIDAY VILLAGE" ]
+// {
+//   _id, name,
+//    "regions": *[_type == "region" && references(^._id)]{name}
+// }
 // END row 30
 
 
