@@ -29,12 +29,51 @@
 // }
 // END row 5
 
-//QUERY row 30 "get Region Details by Location"
+//QUERY row 10 "get Units By Feature"
 // *[_type == "selfCateringFeatures" && name == "BBQ"]{
 //   _id, name,
 //   "selfCaterings": array::unique(*[_type == "selfCatering" && references(^._id) ].name)
 // }
+// END row 10
+
+//QUERY row 11 "get Units By Feature And Location"
+//*[_type == "selfCateringFeatures" && name == "BBQ"]{
+    // _id, name,
+    // "selfCaterings": array::unique(*[_type == "selfCatering" && references(^._id)
+    //                                  && count((locations[]->name)[@ == "COASTFIELDS HOLIDAY VILLAGE"]) > 0
+    //                                  ]{name})}
+// END row 11
+
+//QUERY row 24 "get Locations"
+//*[_type=='region' ]{ _id, name, locations[]->{_id, name}}
+// END row 24
+
+//QUERY row 25 "get Locations by Region"
+//*[_type=='region' && _id == $regionId]{ _id, name, locations[]->{_id, name}}
+// END row 25
+
+//QUERY row 26"get Locations by Type"
+//*[_type == "location" && locationtype._ref in *[_type=="LocationType" && name == "Park"]._id ]{name}
+//OR *[_type == "location" && locationtype->name == "Park" ]  {name}
+// END row 26
+
+
+// QUERY row 27 get Locations by Type and Region
+//*[_type=='region' && _id == $regionId ] {"locations":locations[@->locationtype->name == $locationType]->{name}}
+// END row 27
+
+
+
+
+
+
+//QUERY row 30 "get Region by Location"
+//*[_type=='region' && _id == $regionId]{ _id, name, locations[]->{_id, name}}
 // END row 30
+
+
+
+
 
 
 
