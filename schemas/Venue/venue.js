@@ -9,12 +9,27 @@ export default {
       title: 'Name',
       validation: Rule => Rule.required()
     },
+
+    {
+      title: 'Use Existing Location',
+      name: 'locationActive',
+      type: 'boolean',
+      initialValue: true
+    },
+    {
+      name: 'location',
+      text: 'Venue Location',
+      type: 'reference',
+      to: [{type: 'location'}],
+      readOnly: ({document}) => document?.locationActive === false,
+    },
     {
       name: 'address',
       title: 'Location Address',
       type: 'address',
-      validation: Rule => Rule.required()
+      readOnly: ({document}) => document?.locationActive === true,
   },
+
   {
       name: 'type',
       title: 'Venu Type',

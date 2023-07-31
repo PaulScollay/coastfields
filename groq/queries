@@ -4,35 +4,35 @@
 //QUERY row 2 "get Units By Location"
 // *[_type == "location" && name == "COASTFIELDS HOLIDAY VILLAGE"]{
 //   _id, name,
-//   "selfCaterings": *[_type == "selfCatering" && references(^._id)]{name}
+//   "selfCaterings": *[_type == "selfCatering" && references(^._id)]{_id, _type, name}
 // }
 // END row 2
 
 //QUERY row 3 "get Units By Location and Unit Type"
 // *[_type == "location" && name == "COASTFIELDS HOLIDAY VILLAGE"]{
 //   _id, name,
-//   "selfCaterings": *[_type == "selfCatering" && references(^._id) && unitType->name == "Lodge"]{name, "unit" : unitType->name}
+//   "selfCaterings": *[_type == "selfCatering" && references(^._id) && unitType->name == "Lodge"]{name, "unit" : unitType->{_id, _type, name})}
 // }
 // END row 3
 
 //QUERY row 4 "List of Unit Types for specific groups i.e. All types in Self-Catering - Lodges. Caravans, Apartments"
 // *[_type == "location"]{
 //   _id, name,
-//   "selfCaterings": array::unique(*[_type == "selfCatering" && references(^._id) ].unitType->name)
+//   "selfCaterings": array::unique(*[_type == "selfCatering" && references(^._id) ].unitType->{_id, _type, name})
 // }
 // END row 4
 
 //QUERY row 5 "List of Unit Types for specific groups i.e. All types in Self-Catering - Lodges. Caravans, Apartments"
 // *[_type == "location" && name == "COASTFIELDS HOLIDAY VILLAGE"]{
 //   _id, name,
-//   "selfCaterings": array::unique(*[_type == "selfCatering" && references(^._id) ].unitType->name)
+//   "selfCaterings": array::unique(*[_type == "selfCatering" && references(^._id) ].unitType->{_id, _type, name})
 // }
 // END row 5
 
 //QUERY row 10 "get Units By Feature"
 // *[_type == "selfCateringFeatures" && name == "BBQ"]{
 //   _id, name,
-//   "selfCaterings": array::unique(*[_type == "selfCatering" && references(^._id) ].name)
+//   "selfCaterings": array::unique(*[_type == "selfCatering" && references(^._id) ]{_id, _type, name})
 // }
 // END row 10
 
@@ -47,7 +47,7 @@
 //QUERY row 12 "get Units By Tags"
 // *[_type == "selfcateringtag" && tag == "good-for-kids" ]{
 //     _id, tag,
-//     "selfCaterings": *[_type == "selfCatering" && references(^._id)]{name}
+//     "selfCaterings": *[_type == "selfCatering" && references(^._id)]{_id, _type, name}
 //   }
 //
 
@@ -55,7 +55,7 @@
 // *[_type == "selfcateringtag" && tag == "good-for-kids" ]{
 //     _id, tag,
 //     "selfCaterings": *[_type == "selfCatering" && references(^._id)
-//                       && count((locations[]->name)[@ == "COASTFIELDS HOLIDAY VILLAGE"]) > 0 ]{name} }
+//                       && count((locations[]->name)[@ == "COASTFIELDS HOLIDAY VILLAGE"]) > 0 ]{_id, _type, name} }
   
 //
 
@@ -65,33 +65,33 @@
 //QUERY row 12 "get Units By Tags"
 // *[_type == "selfcateringtag" && tag == "good-for-kids" ]{
 //     _id, tag,
-//     "selfCaterings": *[_type == "selfCatering" && references(^._id)]{name}
+//     "selfCaterings": *[_type == "selfCatering" && references(^._id)]{_id, _type, name}
 //   }
 //
 
 //QUERY row 24 "get Locations"
-//*[_type=='region' ]{ _id, name, locations[]->{_id, name}}
+//*[_type=='region' ]{ _id, name, locations[]->{_id, _type, name}}
 // END row 24
 
 //QUERY row 25 "get Locations by Region"
-//*[_type=='region' && _id == $regionId]{ _id, name, locations[]->{_id, name}}
+//*[_type=='region' && _id == $regionId]{ _id, name, locations[]->{_id, _type, name}}
 // END row 25
 
 //QUERY row 26"get Locations by Type"
-//*[_type == "location" && locationtype._ref in *[_type=="LocationType" && name == "Park"]._id ]{name}
-//OR *[_type == "location" && locationtype->name == "Park" ]  {name}
+//*[_type == "location" && locationtype._ref in *[_type=="LocationType" && name == "Park"]._id ]{_id, _type, name}
+//OR *[_type == "location" && locationtype->name == "Park" ]  {_id, name}
 // END row 26
 
 
 // QUERY row 27 get Locations by Type and Region
-//*[_type=='region' && _id == $regionId ] {"locations":locations[@->locationtype->name == $locationType]->{name}}
+//*[_type=='region' && _id == $regionId ] {"locations":locations[@->locationtype->name == $locationType]->{_id, _type, name}}
 // END row 27
 
 
 //QUERY row 29 "get Regions"
 // *[_type=='region' ]
 // {
-//   _id, name, "images":Images[], "locations":locations[]->{_id,name}
+//   _id, name, "images":Images[], "locations":locations[]->{_id,_type, name}
 // }
 // END row 29
 
@@ -101,18 +101,32 @@
 // *[_type=='location'  && name == "COASTFIELDS HOLIDAY VILLAGE" ]
 // {
 //   _id, name,
-//    "regions": *[_type == "region" && references(^._id)]{name}
+//    "regions": *[_type == "region" && references(^._id)]{_id, _type, name}
 // }
 // END row 30
 
 
+//QUERY row 35 "get venues by type"
+// *[_type == "venueType" && name == "Restaurant" ] {
+//     id, name,
+//     "venues" : array::unique(*[_type == "venue" && references(^._id)] {_id, _type, name})
+// }
+// END row 35
 
+//36 List of venues for a specific Location e.g. (All Venues at the Grange)
+// *[_type == "location" && name == "COASTFIELDS HOLIDAY VILLAGE"] {
+//     _id, name,
+//     "venues" : array::unique(*[_type == "venue" && references(^._id)]{_id, _type, name})
+// }
+// END row 36
 
-
-
-
-
-
+// *[_type == "location" && name == "COASTFIELDS HOLIDAY VILLAGE"] {
+//     _id, _type, name,
+//     "venues" : array::unique(*[_type == "venue" 
+//                                && type->name == "Club"
+//                                && references(^._id)]{_id, _type, name, "venueType":type->name})
+// }
+// END row 37
 
 
 
