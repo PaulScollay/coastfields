@@ -194,7 +194,19 @@ export default defineConfig({
                             .filter('_type == "attraction"')),
                       ] ),
                   ),
-            
+                  S.divider(),
+                  S.divider(),
+                  S.listItem()
+                  .title('Stock Control')
+                  .child(  S.documentTypeList('location')
+                            .title('Stock Control')
+                            .child(locationId =>
+                              S.documentList()
+                                .title('Self Catering ')
+                                .filter('_type == "selfCatering" && $locationId in locations[]._ref')
+                                .params({ locationId })
+                            )
+                           )
                   // .child(
                   //   S.list()
                   //     // Sets a title for our new list

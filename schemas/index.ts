@@ -27,6 +27,10 @@ import touringsuitability from './Groups/touring/touringSuitability.js'
 import touringTag from './Groups/touring/touringTags.js'
 import searchTags from './Tags/searchTags.js'
 
+//Stock Related Schemas (May move to seperate dataset)
+import stock from  './Stock/stock.js'
+import stockLocation from './Stock/stockLocation.js'
+import stockUnit from './Stock/stockUnit.js'
 
 export const schemaTypes = 
    [region, 
@@ -57,6 +61,9 @@ export const schemaTypes =
     durationType,
     timeValue,
     searchTags,
-    tagInput
+    tagInput,
+    stock,
+    stockLocation,
+    stockUnit
 
 ]
