@@ -105,6 +105,19 @@ export default defineConfig({
                       .child( S.documentList()
                           .title('Self Catering Search Tags')
                           .filter('_type == "selfCateringTag"')),
+
+                      S.listItem()
+                      .title('Self Catering By Location')
+                      .child(  S.documentTypeList('location')
+                                .title('Location')
+                                .child(locationId =>
+                                  S.documentList()
+                                    .title('Self Catering ')
+                                    .filter('_type == "selfCatering" && $locationId in locations[]._ref')
+                                    .params({ locationId })
+                                )
+                                )
+
                     ] ),
                   ),
                 S.listItem()
@@ -147,16 +160,39 @@ export default defineConfig({
                   ),
                 S.divider(),
                 S.listItem()
-                  .title('Owners')
+                  .title('Stock')
                   .child( S.list()
-                    .id('owners')
+                    .id('stock')
                     .items([
                       S.listItem()
-                        .id('ownerslist')
-                        .title('Owners')
+                        .id('stockList')
+                        .title('Stock')
                         .child(S.documentList()
-                            .title('Owners')
-                            .filter('_type == "selfCatering"')),
+                            .title('Stock')
+                            .filter('_type == "stock"')),
+                      S.listItem()
+                      .id('stockFeatures')
+                      .title('Stock Features')
+                      .child(S.documentList()
+                          .title('Stock Features')
+                          .filter('_type == "stockFeatures"')),
+                      S.listItem()
+                      .id('stockAvailability')
+                      .title('Stock Availability')
+                      .child(S.documentList()
+                          .title('Stock Availability')
+                          .filter('_type == "stockAvailability"')),
+                      S.listItem()
+                      .title('Stock By Location')
+                      .child(  S.documentTypeList('location')
+                                .title('Location')
+                                .child(locationId =>
+                                  S.documentList()
+                                    .title('Stock By Location')
+                                    .filter('_type == "stock" && $locationId in locations[]._ref')
+                                    .params({ locationId })
+                                )
+                                )
                       ] ),
                   ),
                   S.listItem()
@@ -195,18 +231,18 @@ export default defineConfig({
                       ] ),
                   ),
                   S.divider(),
-                  S.divider(),
-                  S.listItem()
-                  .title('Stock Control')
-                  .child(  S.documentTypeList('location')
-                            .title('Stock Control')
-                            .child(locationId =>
-                              S.documentList()
-                                .title('Self Catering ')
-                                .filter('_type == "selfCatering" && $locationId in locations[]._ref')
-                                .params({ locationId })
-                            )
-                           )
+                  // S.divider(),
+                  // S.listItem()
+                  // .title('Stock Control')
+                  // .child(  S.documentTypeList('location')
+                  //           .title('Stock Control')
+                  //           .child(locationId =>
+                  //             S.documentList()
+                  //               .title('Self Catering ')
+                  //               .filter('_type == "selfCatering" && $locationId in locations[]._ref')
+                  //               .params({ locationId })
+                  //           )
+                  //          )
                   // .child(
                   //   S.list()
                   //     // Sets a title for our new list

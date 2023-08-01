@@ -4,6 +4,7 @@ import address from './CustomObjects/address'
 import tagInput from './CustomObjects/tagInput.js'
 import generalContent from './CustomObjects/mediaContent'
 import durationType from './CustomObjects/Duration/durationType'
+import year from './Static/year'
 import { bedType, bedTypeCount } from './CustomObjects/bedTypes'
 import gallery from './CustomObjects/imageGallery'
 import timeValue from './CustomObjects/Duration/timeValueType'
@@ -29,14 +30,16 @@ import searchTags from './Tags/searchTags.js'
 
 //Stock Related Schemas (May move to seperate dataset)
 import stock from  './Stock/stock.js'
-import stockLocation from './Stock/stockLocation.js'
+import stockAvailability from  './Stock/stockAvailability.js'
 import stockUnit from './Stock/stockUnit.js'
+import stockFeatures from './Stock/stockFeatures.js'
 
 export const schemaTypes = 
    [region, 
     location,
     address,
     generalContent,
+    year,
     bedType,
     bedTypeCount,
     LocationType,
@@ -63,7 +66,8 @@ export const schemaTypes =
     searchTags,
     tagInput,
     stock,
-    stockLocation,
-    stockUnit
+    stockAvailability,
+    stockUnit,
+    stockFeatures,
 
 ]

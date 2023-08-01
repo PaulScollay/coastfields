@@ -16,7 +16,7 @@ export default {
             to: [{type: 'manufacturer'}]
 
         },
-        {
+        {//TYPE IN modEL
             name: 'model_type',
             title: 'Type',
             type: 'reference',
