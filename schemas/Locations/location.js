@@ -82,7 +82,7 @@ export default {
         },
 
         {
-          name: 'locationtype',
+          name: 'locationType',
           title: 'Location Type',
           type: 'reference',
           to: [{type: 'LocationType'}],

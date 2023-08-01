@@ -20,7 +20,7 @@ export default {
         name: 'location',
         type: 'geopoint',
         title: 'Geo Location',  
-        description: 'Required, must be in United Kingdom ',
+        description: 'Required, Location must be in United Kingdom (UK lat > 49 && lat < 61 && lng > -10 && lng < 2',
         validation: Rule =>
           Rule.required().custom((location) => {
             const { lat, lng } = location

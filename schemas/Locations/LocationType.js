@@ -11,25 +11,3 @@ export default {
       }
     ]
   }
-
-
-
-  // {
-  //   name: 'date',
-  //   title: 'Date',
-  //   type: 'datetime',
-  //   validation: Rule => Rule.required()
-  // },
-  // {
-  //   name: 'author',
-  //   title: 'Author',
-  //   type: 'reference',
-  //   to: [{type: 'author'}],
-  //   validation: Rule => Rule.required()
-  // },
-  // {
-  //   name: 'slug',
-  //   type: 'slug',
-  //   title: 'Slug',
-  //   validation: Rule => Rule.required()
-  // }

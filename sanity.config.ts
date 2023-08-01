@@ -100,11 +100,11 @@ export default defineConfig({
                             .title('Location Features')
                             .filter('_type == "selfCateringUnitType"')),
                       S.listItem()
-                      .id('selfcateringtag')
+                      .id('selfCateringTag')
                       .title('Self Catering Tags')
                       .child( S.documentList()
                           .title('Self Catering Search Tags')
-                          .filter('_type == "selfcateringtag"')),
+                          .filter('_type == "selfCateringTag"')),
                     ] ),
                   ),
                 S.listItem()
@@ -142,7 +142,7 @@ export default defineConfig({
                         .title('Touring Tags')
                         .child(S.documentList()
                             .title('Touring Tags')
-                            .filter('_type == "touringtag"')),
+                            .filter('_type == "touringTag"')),
                       ] ),
                   ),
                 S.divider(),
@@ -177,6 +177,21 @@ export default defineConfig({
                         .child(S.documentList()
                             .title('Venue Types')
                             .filter('_type == "venueType"')),
+                      ] ),
+                  ),
+                  S.divider(),
+                  S.listItem()
+                  .title('Attractions')
+                  .child( S.list()
+                    .id('attractionList')
+                    .title('Attractions')                    
+                    .items([
+                      S.listItem()
+                        .id('attractionList')
+                        .title('Attractions')
+                        .child(S.documentList()
+                            .title('Attraction')
+                            .filter('_type == "attraction"')),
                       ] ),
                   ),
             

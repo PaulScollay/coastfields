@@ -1,5 +1,5 @@
 export default {
-    name: 'touringtag',
+    name: 'touringTag',
     type: 'document',
     title: 'Touring Search Tags',
     fields: [

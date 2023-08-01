@@ -1,13 +1,22 @@
 export default {
-    name: 'park_unit',
+    name: 'park_unit_qry',
     type: 'document',
-      title: 'Park Unit',
+      title: 'Park Unit Qry',
     fields: [
       {
         name: 'name',
         type: 'string',
         title: 'Name'
       },
+      // {
+      //   name: 'parent',
+      //   type: 'reference',
+      //   to: [
+      //     {
+      //       type: 'park' // or whatever your document name is
+      //     }
+      //   ]
+      // },
       {
         name: 'stockNo',
         type: 'string',

@@ -219,7 +219,7 @@ export default {
             of: [
               {
                 type: 'reference',
-                to: { type: 'selfcateringtag' },
+                to: { type: 'selfCateringTag' },
               },
             ]
           },

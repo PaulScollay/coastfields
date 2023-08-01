@@ -21,6 +21,17 @@ export default {
         ],
       },
       {
+        name: 'attractions',
+        title: 'Attractions',
+        type: 'array',
+        of: [
+          {
+            type: 'reference',
+            to: { type: 'attraction' },
+          },
+        ],
+      },
+      {
         name: 'Images',
         type: 'array',
         of: [

@@ -232,7 +232,7 @@ export default {
             of: [
               {
                 type: 'reference',
-                to: { type: 'touringtag' },
+                to: { type: 'touringTag' },
               },
             ]
           },

@@ -1,5 +1,5 @@
 export default {
-    name: 'selfcateringtag',
+    name: 'selfCateringTag',
     type: 'document',
     title: 'Self Catering Search Tags',
     fields: [
