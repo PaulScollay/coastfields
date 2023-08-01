@@ -169,20 +169,15 @@ export default {
           },
           {
             title: 'POA Price On Application',
-            name: 'oriceOnApplication',
+            name: 'priceOnApplication',
             type: 'boolean',
             initialValue: true,
           },
           {
             name: 'locations',
             text: 'Locations',
-            type: 'array',
-            of: [
-              {
-                type: 'reference',
-                to: { type: 'location' },
-              },
-            ]
+            type: 'reference',
+            to: [{type: 'location'}]
           },
           {
             name: 'longDescription',

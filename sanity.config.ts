@@ -189,7 +189,7 @@ export default defineConfig({
                                 .child(locationId =>
                                   S.documentList()
                                     .title('Stock By Location')
-                                    .filter('_type == "stock" && $locationId in locations[]._ref')
+                                    .filter('_type == "stock" && $locationId == locations._ref')
                                     .params({ locationId })
                                 )
                                 )
