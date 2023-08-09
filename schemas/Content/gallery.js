@@ -50,6 +50,7 @@ export default {
           ],
           layout: 'radio', // <-- defaults to 'dropdown' 
         },
+        validation: Rule => Rule.required(),
       },
       {
         name: 'zoom',

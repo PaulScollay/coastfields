@@ -41,7 +41,11 @@ import fourColImage from './Content/fourColImage'
 import columnImageBlock from './Content/columnImageBlock'
 import contentGallery from './Content/gallery'
 import textImage from './Content/textImageLeftRight'
+import fullWidthImage from './Content/fullWidthImage'
 import contentTable from './Content/table'
+import featuredImage from './Content/featuredImage'
+import imageLeftTextRight from './Content/imageLeftTextRight'
+import imageRightTextLeft from './Content/imageRightTextLeft'
 
 export const schemaTypes = 
    [region, 
@@ -86,5 +90,9 @@ export const schemaTypes =
     fourColImage, 
     textImage,
     contentTable,
-    contentGallery
+    contentGallery,
+    fullWidthImage,
+    featuredImage,
+    imageLeftTextRight,
+    imageRightTextLeft,
 ]

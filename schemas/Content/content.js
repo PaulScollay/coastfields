@@ -18,7 +18,6 @@ export default {
           source: 'contentTitle',
           disableArrayWarning: true,
         },
-        description: "",
         validation: (Rule) => Rule.required(),
       },
       {
@@ -27,66 +26,41 @@ export default {
         of: [
           {type: 'block'},
           {
-            name: 'featuredImage',
-            type: 'image',
+            name: 'contentFeaturedImage',
+            type: 'featuredImage',
             title: 'Featured Image'
+            
           },
-
-
-
           {
             name: 'gallery',
             type: 'contentGallery',
             title: 'Gallery'
           },
           {
-            name: 'textImageLeftRight',
-            type: 'textImageLeftRight',
-            title: 'Text Image Left/Right'
+            name: 'contentImageLeftTextRight',
+            type: 'imageLeftTextRight',
+            title: 'Image Left Text Right'
+          },
+          {
+            name: 'contentImageRightTextLeft',
+            type: 'imageRightTextLeft',
+            title: 'Image Right Text Left'
           },
            {
-            title: 'Image with text',
-            type: 'image',
-            fields: [
-              {
-                title: 'Position',
-                name: 'position',
-                type: 'string',
-                options: {
-                  list: [
-                    {title: 'Center Align', value: 'center'},
-                    {title: 'Left Align', value: 'left'},
-                    {title: 'Right Align', value: 'right'},
-                  ],
-                  layout: 'radio',
-                  isHighlighted: true
-                }
-              },
-              {
-                type: 'text',
-                name: 'description',
-                title: 'Description',
-                options: {
-                  isHighlighted: true
-                }
-              }
-            ],
-            options: {
-              hotspot: true
-            }
+            title: 'Full Width Image',
+            type: 'fullWidthImage',
+            name: 'fullWidthImage',
           },
-
-
           {
-            title: "2 Images",
+            title: "2 Column Image",
             type: 'twoColImage'
           },
           {
-            title: "3 Images",
+            title: "3 Column Image",
             type: 'threeColImage'
           },
           {
-            title: "4 Images",
+            title: "4 Column Image",
             type: 'fourColImage'
           },
           {

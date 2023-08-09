@@ -3,6 +3,7 @@ export default
       name: 'twoColImage',
       type: 'document',
       title: 'Two Column Images',
+
       fieldsets: [
         {
           name: 'keyfiguresFieldset',
@@ -11,6 +12,9 @@ export default
         },
 
       ],
+      initialValue: {
+        display: 'Two Column Image',
+      },
       fields: [
         {
             name: 'display',

@@ -10,6 +10,9 @@ export default
           options: { columns: 3 },
         },
       ],
+      initialValue: {
+        display: 'Four Column Image',
+      },
       fields: [
         {
           name: 'display',

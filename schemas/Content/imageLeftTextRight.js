@@ -1,7 +1,10 @@
 export default {
-    name: 'textImageLeftRight',
+    name: 'imageLeftTextRight',
     type: 'object',
-    title: 'textImage',
+    title: 'imageLeftTextRight',
+    initialValue: {
+        display: 'Image Left Text Right',
+      },
     fields: [
     {
         name: 'display',
@@ -23,19 +26,6 @@ export default {
         title: 'Image Text',
         type: 'text'
         },
-        {
-        name: 'align',
-        type: 'string',
-        title: 'Display as',
-        options: {
-            list: [
-            { title: 'Image on left', value: 'Image-On-Left' },
-            { title: 'Image on right', value: 'Image-On-Right' },
-            ],
-            layout: 'radio', // <-- defaults to 'dropdown'
-        },
-        validation: Rule => Rule.required(),
-    }
     ]
     ,
     options: {
