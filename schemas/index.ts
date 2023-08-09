@@ -46,6 +46,8 @@ import contentTable from './Content/table'
 import featuredImage from './Content/featuredImage'
 import imageLeftTextRight from './Content/imageLeftTextRight'
 import imageRightTextLeft from './Content/imageRightTextLeft'
+import faqs from './Content/faqs'
+import popup from './Content/popup'
 
 export const schemaTypes = 
    [region, 
@@ -95,4 +97,6 @@ export const schemaTypes =
     featuredImage,
     imageLeftTextRight,
     imageRightTextLeft,
+    faqs,
+    popup
 ]

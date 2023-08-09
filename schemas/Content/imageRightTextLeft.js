@@ -5,6 +5,14 @@ export default {
     initialValue: {
         display: 'Image Right Text Left',
       },
+      fieldsets: [
+        {
+          name: 'imageRightGroup',
+          title: 'Select 2 Images',
+          options: { columns: 2 },
+        },
+
+      ],
     fields: [
     {
         name: 'display',
@@ -13,18 +21,21 @@ export default {
         validation: Rule => Rule.required(),
 
         },
-      {
-        name: 'image',
-        type: 'image',
-        title: 'Image',
-        options: {
-            hotspot: true,
-        },
+
+        {
+            name: 'text',
+            title: 'Image Text',
+            type: 'text',
+            fieldset: "imageRightGroup",
         },
         {
-        name: 'text',
-        title: 'Image Text',
-        type: 'text'
+            name: 'image',
+            type: 'image',
+            title: 'Image',
+            fieldset: "imageRightGroup",
+            options: {
+                hotspot: true,
+            },
         },
     ]
     ,

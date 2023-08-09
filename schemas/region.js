@@ -1,7 +1,10 @@
+import { PlayIcon } from '@sanity/icons'
+
 export default {
     name: 'region',
     type: 'document',
-      title: 'Region',
+    title: 'Region',
+    icon: PlayIcon,
     fields: [
       {
         name: 'name',

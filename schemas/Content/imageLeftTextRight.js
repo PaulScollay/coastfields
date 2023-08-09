@@ -5,6 +5,14 @@ export default {
     initialValue: {
         display: 'Image Left Text Right',
       },
+      fieldsets: [
+        {
+          name: 'imageLeftGroup',
+          title: 'Select 2 Images',
+          options: { columns: 2 },
+        },
+
+      ],
     fields: [
     {
         name: 'display',
@@ -17,6 +25,7 @@ export default {
         name: 'image',
         type: 'image',
         title: 'Image',
+        fieldset: "imageLeftGroup",
         options: {
             hotspot: true,
         },
@@ -24,7 +33,8 @@ export default {
         {
         name: 'text',
         title: 'Image Text',
-        type: 'text'
+        type: 'text',
+        fieldset: "imageLeftGroup"
         },
     ]
     ,

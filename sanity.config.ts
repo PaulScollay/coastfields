@@ -5,6 +5,7 @@ import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
 import {Progress} from './schemas/CustomObjects/progressBar/progressBar'
 import { table } from '@sanity/table';
+import { PlayIcon, EarthGlobeIcon, RocketIcon } from '@sanity/icons'
 
 export default defineConfig({
   name: 'default',
@@ -41,11 +42,13 @@ export default defineConfig({
               .items([
                 S.listItem()
                 .title('Region')
+                .icon(EarthGlobeIcon)
                 .child(  S.documentList()
                           .title('Regions')
                           .filter('_type == "region"')),
                 S.listItem()
                   .title('Location')
+                  .icon(RocketIcon)
                   .child( S.list()
                     .id('location1')
                     .title('Location')

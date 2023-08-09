@@ -64,24 +64,89 @@ export default {
             type: 'fourColImage'
           },
           {
+            title: "FAQs",
+            type: 'faqs'
+          },
+          {
+            title: "Popup",
+            type: 'popup'
+          },
+          {
             name: 'contentTable',
             type: 'contentTable',
             title: 'Table'
           },
           {
             name: 'poster',
+            type: 'document',
             title: 'Poster',
-            type: 'image',
+            initialValue: {
+              display: 'Poster',
+            },
+            fields: [
+              {
+                  name: 'display',
+                  type: 'string',
+                  title: 'Display as',
+                  validation: Rule => Rule.required(),
+      
+                },
+                {
+                  name: 'posterImage',
+                  type: 'image',
+                  title: 'Poster Image'
+                  
+                },
+      
+            ],
           },
           {
             name: 'menu',
+            type: 'document',
             title: 'Menu',
-            type: 'image',
+            initialValue: {
+              display: 'Menu',
+            },
+            fields: [
+              {
+                  name: 'display',
+                  type: 'string',
+                  title: 'Display as',
+                  validation: Rule => Rule.required(),
+      
+                },
+                {
+                  name: 'menuImage',
+                  type: 'image',
+                  title: 'Menu Image'
+                  
+                },
+      
+            ],
           },
           {
             name: 'brochure',
+            type: 'document',
             title: 'Brochure',
-            type: 'image',
+            initialValue: {
+              display: 'Brochure',
+            },
+            fields: [
+              {
+                  name: 'display',
+                  type: 'string',
+                  title: 'Display as',
+                  validation: Rule => Rule.required(),
+      
+                },
+                {
+                  name: 'brochureImage',
+                  type: 'image',
+                  title: 'Brochure Image'
+                  
+                },
+      
+            ],
           },
         ]
       }

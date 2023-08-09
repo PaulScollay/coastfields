@@ -3,6 +3,9 @@ export default
         name: 'contentTable',
         title: 'Table',
         type: 'document',
+        initialValue: {
+            display: 'Table',
+          },
         fields: [
             {
                 name: 'display',
