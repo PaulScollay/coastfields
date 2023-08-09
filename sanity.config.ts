@@ -4,6 +4,7 @@ import {Stack} from '@sanity/ui'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
 import {Progress} from './schemas/CustomObjects/progressBar/progressBar'
+import { table } from '@sanity/table';
 
 export default defineConfig({
   name: 'default',
@@ -30,6 +31,7 @@ export default defineConfig({
   
 
   plugins: [ 
+            table(),
             visionTool(),
             deskTool({
               structure: (S) =>
@@ -231,18 +233,13 @@ export default defineConfig({
                       ] ),
                   ),
                   S.divider(),
-                  // S.divider(),
-                  // S.listItem()
-                  // .title('Stock Control')
-                  // .child(  S.documentTypeList('location')
-                  //           .title('Stock Control')
-                  //           .child(locationId =>
-                  //             S.documentList()
-                  //               .title('Self Catering ')
-                  //               .filter('_type == "selfCatering" && $locationId in locations[]._ref')
-                  //               .params({ locationId })
-                  //           )
-                  //          )
+                  S.listItem()
+                  .title('Content')
+                  .child(  S.documentTypeList('content')
+                            .title('Content')
+                            .filter('_type == "content"')
+                            )
+                           
                   // .child(
                   //   S.list()
                   //     // Sets a title for our new list

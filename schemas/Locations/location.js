@@ -175,3 +175,12 @@ export default {
       }, 
     ]  
   }
+
+  // initialValue: {
+  //   tel: 122334554565,
+  //   geo: {
+  //     _type: 'geopoint',
+  //     lat: 1,
+  //     lng: 2
+  //   }
+  // },

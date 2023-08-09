@@ -11,7 +11,6 @@ import timeValue from './CustomObjects/Duration/timeValueType'
 import LocationType from './Locations/LocationType'
 import locationFeatures from './Locations/locationFeatures'
 import LocationTags from './Locations/locationTags'
-import content from './content.js'
 import attractions from './Attraction/attraction.js'
 import slider from './CustomObjects/numberSlider.js'
 import locationPagelink from './Locations/locationPageLinks.js'
@@ -33,6 +32,16 @@ import stock from  './Stock/stock.js'
 import stockAvailability from  './Stock/stockAvailability.js'
 import stockUnit from './Stock/stockUnit.js'
 import stockFeatures from './Stock/stockFeatures.js'
+
+//Content
+import content from './Content/content'
+import twoColImage from './Content/twoColImage'
+import threeColImage from './Content/threeColImage'
+import fourColImage from './Content/fourColImage'
+import columnImageBlock from './Content/columnImageBlock'
+import contentGallery from './Content/gallery'
+import textImage from './Content/textImageLeftRight'
+import contentTable from './Content/table'
 
 export const schemaTypes = 
    [region, 
@@ -70,4 +79,12 @@ export const schemaTypes =
     stockUnit,
     stockFeatures,
 
+    //Content
+    columnImageBlock, 
+    twoColImage, 
+    threeColImage, 
+    fourColImage, 
+    textImage,
+    contentTable,
+    contentGallery
 ]
