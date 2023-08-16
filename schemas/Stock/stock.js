@@ -135,7 +135,14 @@ export default {
           {
             title: 'Flash Message',
             name: 'flashMessage',
-            type: 'text',
+            type: 'array',
+            of: [
+              {type: 'block'},
+              {
+                name: 'flashImage',
+                type: 'image',          
+              }
+            ]
           },
 
           {

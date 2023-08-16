@@ -242,6 +242,20 @@ export default defineConfig({
                             .title('Content')
                             .filter('_type == "content"')
                             )
+                  ,
+                  S.divider(),
+                  S.listItem()
+                  .title('Events')
+                  .child(  S.documentTypeList('event')
+                            .title('Events')
+                            .filter('_type == "event"')
+                            ),
+                  S.listItem()
+                  .title('Promotions')
+                  .child(  S.documentTypeList('promotion')
+                            .title('Promotions')
+                            .filter('_type == "promotion"')
+                            )
                            
                   // .child(
                   //   S.list()

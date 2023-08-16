@@ -3,15 +3,15 @@ import {defineField, defineType} from 'sanity'
 export default {
   name: 'duration',
   title: 'Duration',
-  description: 'Enter check in and check out times',
+  description: 'Enter start and end times',
   type: 'object',
   fields: [
     defineField({
-      name: 'checkin',
+      name: 'start',
       type: 'timeValue',
     }),
     defineField({
-      name: 'checkout',
+      name: 'end',
       type: 'timeValue',
     }),
   ],

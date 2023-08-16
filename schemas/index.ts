@@ -4,6 +4,7 @@ import address from './CustomObjects/address'
 import tagInput from './CustomObjects/tagInput.js'
 import generalContent from './CustomObjects/mediaContent'
 import durationType from './CustomObjects/Duration/durationType'
+import offerType from './CustomObjects/offerType'
 import year from './StaticData/year'
 import { bedType, bedTypeCount } from './CustomObjects/bedTypes'
 import gallery from './CustomObjects/imageGallery'
@@ -13,6 +14,9 @@ import locationFeatures from './Locations/locationFeatures'
 import LocationTags from './Locations/locationTags'
 import attractions from './Attraction/attraction.js'
 import slider from './CustomObjects/numberSlider.js'
+import emailInput from './CustomObjects/email.js'
+import {files, fileImages } from './CustomObjects/Files/files.js'
+import phone from './CustomObjects/phone.js'
 import locationPagelink from './Locations/locationPageLinks.js'
 import venueType from './Venue/venueType.js'
 import venue from './Venue/venue.js'
@@ -32,6 +36,12 @@ import stock from  './Stock/stock.js'
 import stockAvailability from  './Stock/stockAvailability.js'
 import stockUnit from './Stock/stockUnit.js'
 import stockFeatures from './Stock/stockFeatures.js'
+
+//Event
+import event from './Event/event.js'
+
+//Promotion
+import promotion from './Promotions/promotion.js'
 
 //Content
 import content from './Content/content'
@@ -60,9 +70,14 @@ export const schemaTypes =
     LocationType,
     locationPagelink,
     LocationTags,
+    offerType,
     content,
     gallery,
     slider,
+    files,
+    fileImages,
+    emailInput,
+    phone,
     locationFeatures,
     attractions,
     venue,
@@ -98,5 +113,11 @@ export const schemaTypes =
     imageLeftTextRight,
     imageRightTextLeft,
     faqs,
-    popup
+    popup,
+
+    //event
+    event,
+
+    //promotion
+    promotion
 ]
