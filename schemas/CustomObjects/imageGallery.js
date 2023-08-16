@@ -10,7 +10,7 @@ export default {
       type: 'array',
       of: [
         defineField({
-          name: 'imageGAllery',
+          name: 'imageGallery',
           type: 'image',
           options: {hotspot: true},
           fields: [

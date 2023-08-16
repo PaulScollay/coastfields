@@ -2,6 +2,18 @@ export default {
     name: 'location',
     type: 'document',
     title: 'Location',
+    fieldsets: [
+      {
+        name: 'contactDetails',
+        title: 'Contact Details',
+        options: { columns: 2 },
+      },
+      {
+        name: 'openingDates',
+        title: 'Park Opening Dates',
+        options: { columns: 2 },
+      },
+    ],
     fields: [
         {
           name: 'name',
@@ -13,29 +25,44 @@ export default {
           ]
         },
         {
+          name: 'email',
+          title: 'Email',
+          type: 'emailInput',
+          fieldset: "contactDetails",
+          validation : Rule => Rule.required()
+        },
+        {
+          name: 'locationPhone',
+          title: 'Phone',
+          type: 'string',
+          fieldset: "contactDetails",
+          validation: Rule => Rule.custom(phone => {
+            if (typeof phone === 'undefined') {
+                return true // Allow undefined values
+            }
+            
+            return phone.toLowerCase()
+                .match(
+                    /^(?:0|\+?44)(?:\d\s?){9,10}$/
+                  )
+                  
+                ? true
+                : 'This is not a valid uk phone number'
+          })
+        },
+        {
             name: 'address',
             title: 'Location Address',
             type: 'address',
             validation: Rule => Rule.required()
         },
         {
-          name: 'phone',
-          title: 'Phone',
-          type: 'string',
-          validation: Rule => Rule.custom(phone => {
-              if (typeof phone === 'undefined') {
-                  return true // Allow undefined values
-              }
-              
-              return phone.toLowerCase()
-                  .match(
-                      /^(?:0|\+?44)(?:\d\s?){9,10}$/
-                    )
-                    
-                  ? true
-                  : 'This is not a valid uk phone number'
-            })
-        },
+          name: 'locationType',
+          title: 'Location Type',
+          type: 'reference',
+          to: [{type: 'LocationType'}],
+          validation: Rule => Rule.required()
+         },
         {
           name: 'longDescription',
           type: 'text',
@@ -47,47 +74,34 @@ export default {
           title: 'Short Description'
         },
         {
-          title: 'Date Opens',
+          title: 'Opens',
           name: 'startDate',
           type: 'date',
-          // validation: Rule => Rule.required().min((new Date())),
+          fieldset: "openingDates",
           initialValue: () => ({
             isHighlighted: false,
             releaseDate: (new Date()).toISOString()
           })
         },
         {
-          title: 'Date Closes',
+          title: 'Closes',
           name: 'endDate',
           type: 'date',
+          fieldset: "openingDates",
           validation: Rule => Rule.required().min(Rule.valueOfField('startDate'))
-        },
-        {
-          name: 'email',
-          title: 'Email',
-          type: 'string',
-          validation: Rule => Rule.custom(email => {
-              if (typeof email === 'undefined') {
-                  return true // Allow undefined values
-              }
-              
-              return email.toLowerCase()
-                  .match(
-                      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-                    )
-                    
-                  ? true
-                  : 'This is not a valid email'
-            })
         },
 
         {
-          name: 'locationType',
-          title: 'Location Type',
-          type: 'reference',
-          to: [{type: 'LocationType'}],
-          validation: Rule => Rule.required()
-         },
+          name: 'Features',
+          type: 'array',
+          of: [
+            {
+              type: 'reference',
+              to: { type: 'locationFeatures' },
+            },
+          ],
+        },
+
          {
           name: 'venus',
           title: 'Venues',
@@ -108,24 +122,24 @@ export default {
         {
           name: 'faqs',
           title: 'FAQs',
+          options: {
+            collapsible: true, // Makes the whole fieldset collapsible
+            collapsed: true, // Defines if the fieldset should be collapsed by default or not
+            columns: 1,
+          },
           type: 'content',
       },
       {
           name: 'featuredImage',
           title: 'Featured Image',
-          type: 'image',
+          type: 'featuredImage',
           validation: Rule => Rule.required()
       },
       {
-        name: 'Features',
-        type: 'array',
-        of: [
-          {
-            type: 'reference',
-            to: { type: 'locationFeatures' },
-          },
-        ],
-      },
+        name: 'Gallery',
+        title: 'Gallery',
+        type: 'contentGallery',
+      }, 
       {
         name: 'logo',
         type: 'array',
@@ -134,23 +148,9 @@ export default {
       },
       {
         name: 'Files',
-        type: 'array',
-        of: [
-          {
-            type: 'image',
-          },
-        ],
+        type: 'files',
       }, 
-      {
-        name: 'Images',
-        title: 'Images',
-        type: 'array',
-        of: [
-          {
-            type: 'image',
-          },
-        ],
-      }, 
+
       {
         name: 'pageLinks',
         title: 'Page Links',
