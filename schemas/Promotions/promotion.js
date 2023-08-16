@@ -6,7 +6,7 @@ export default {
     title: 'Promotions',
     fieldsets: [
       {
-        name: 'contactDetails',
+        name: 'twoColumn',
         title: 'Contact Details',
         options: { columns: 2 },
       },
@@ -23,7 +23,14 @@ export default {
         type: 'string',
         title: 'Name',
         validation: Rule => Rule.required(),
+        fieldset: "twoColumn"
       },
+      {
+        name: 'offerType',
+        title: 'Offer Type',
+        type: 'offerType',
+        fieldset: "twoColumn",
+        validation: Rule => Rule.required(),},
       {
         name: 'longDescription',
         type: 'text',
@@ -42,11 +49,7 @@ export default {
         type: 'featuredImage',
         validation: Rule => Rule.required()
       },
-      {
-        name: 'offerType',
-        title: 'Offer Type',
-        type: 'offerType',
-         },
+
       {
         name: 'tandc',
         title: 'Terms and Conditions',
@@ -100,6 +103,26 @@ export default {
             name: 'promoEnd',
             type: 'datetime',
             validation: Rule => Rule.required().min(Rule.valueOfField('promoStart'))
+          }),
+        ],
+        // make the fields render next to each other
+        options: {columns: 2},
+      },
+      {
+        name: 'validDates',
+        title: 'Valid Dates',
+        description: 'Enter valif start and end dates',
+        type: 'object',
+        validation: Rule => Rule.required(),
+        fields: [
+          defineField({
+            name: 'validStart',
+            type: 'datetime',
+          }),
+          defineField({
+            name: 'validEnd',
+            type: 'datetime',
+            validation: Rule => Rule.required().min(Rule.valueOfField('validStart'))
           }),
         ],
         // make the fields render next to each other
